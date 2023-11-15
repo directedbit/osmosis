@@ -20,7 +20,7 @@ type PricePair struct {
 // called before anything else
 func init() {
 	var err error
-	PricesDB, err = leveldb.OpenFile("/Users/richard/workspace/osmosis-price-indexer/prices.db", nil)
+	PricesDB, err = leveldb.OpenFile("~/workspace/osmosis-price-indexer/prices.db", nil)
 	if err != nil {
 		panic(err)
 	}

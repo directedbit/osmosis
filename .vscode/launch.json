@@ -13,9 +13,9 @@
             "args": [
                 "start",
                 "--home",
-                "/Users/richard/workspace/osmosis-price-indexer",
+                "${workspaceFolder}/../osmosis-price-indexer",
                 "--halt-height",
-                "10000",
+                "10150",
                 //"--log_level",
                 //"debug"
                 "--trace"
