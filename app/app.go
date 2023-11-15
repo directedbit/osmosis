@@ -563,7 +563,10 @@ func (app *OsmosisApp) BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock)
 
 // EndBlocker application updates every end block
 func (app *OsmosisApp) EndBlocker(ctx sdk.Context, req abci.RequestEndBlock) abci.ResponseEndBlock {
-	return app.mm.EndBlock(ctx, req)
+	res := app.mm.EndBlock(ctx, req)
+	ctx.Logger().Info("Indexing prices at height ", "height", ctx.BlockHeight())
+	indexPrices(app, ctx)
+	return res
 }
 
 // InitChainer application update at chain initialization
