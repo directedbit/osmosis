@@ -15,10 +15,10 @@
                 "--home",
                 "${workspaceFolder}/../osmosis-price-indexer",
                 "--halt-height",
-                "10150",
+                "7200000",
                 //"--log_level",
-                //"debug"
                 "--trace"
+                //"debug"
             ],
         },
         {

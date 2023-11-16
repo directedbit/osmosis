@@ -194,3 +194,4 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/intellij,vscode,macos,windows
 /osmosisd
 /.idea/
+cmd/osmosisd/__debug_bin970517535

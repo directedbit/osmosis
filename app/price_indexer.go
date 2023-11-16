@@ -37,16 +37,15 @@ func indexPrices(app *OsmosisApp, ctx sdk.Context) {
 	ETH_DENOM := "ibc/EA1D43981D5C9A1C4AAEA9C23BB1D4FA126BA9BC7020A25E0AE4AA841EA25DC5"
 	OSMO_DENOM := "uosmo"
 	SOMMELIER_DENOM := "ibc/9BBA9A1C257E971E38C1422780CE6F0B0686F0A3085E2D61118D904BFE0F5F5E"
-	atom_to_osmo, err := app.GAMMKeeper.CalculateSpotPrice(ctx, 1, OSMO_DENOM, ATOM_DENOM)
 	a_to_o := 0.0
-	int_a_to_o := atom_to_osmo.TruncateInt64()
-	ctx.Logger().Info("int a to o", int_a_to_o)
+	atom_to_osmo, err := app.GAMMKeeper.CalculateSpotPrice(ctx, 1, OSMO_DENOM, ATOM_DENOM)
 	if err != nil {
 		ctx.Logger().Error(err.Error())
 	} else {
+		int_a_to_o := atom_to_osmo.TruncateInt64()
+		ctx.Logger().Info("int a to o", int_a_to_o)
 		//a_to_o, err := atom_to_osmo.Float64()
 		bigFloatVal := new(big.Float).SetInt(atom_to_osmo.BigInt())
-
 		a_to_o, _ = new(big.Float).Quo(bigFloatVal, DIVISOR).Float64()
 	}
 
